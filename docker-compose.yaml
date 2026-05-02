@@ -1,0 +1,30 @@
+services:
+    web:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: y1245gqplykoixklexgi0qme:afcda5382f4aa9e648792e8359f1920ca4ca68db
+        container_name: y1245gqplykoixklexgi0qme
+        restart: unless-stopped
+        expose:
+            - '80'
+        networks:
+            coolify:
+                aliases:
+                    - valkiria-web
+        labels:
+            - traefik.enable=true
+            - traefik.http.routers.valkiria-web.rule=Host(`valkirialab.com`)
+            - traefik.http.routers.valkiria-web.entryPoints=http,https
+            - traefik.http.routers.valkiria-web.service=valkiria-web
+            - traefik.http.services.valkiria-web.loadbalancer.server.port=80
+            - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
+            - traefik.http.routers.valkiria-web-http.entryPoints=http
+            - traefik.http.routers.valkiria-web-http.middlewares=redirect-to-https
+            - traefik.http.routers.valkiria-web-http.rule=Host(`valkirialab.com`)
+            - coolify.managed=true
+networks:
+    coolify:
+        external: true
+        name: coolify
+        attachable: true
