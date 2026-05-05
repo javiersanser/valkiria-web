@@ -3,8 +3,8 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-        image: y1245gqplykoixklexgi0qme:afcda5382f4aa9e648792e8359f1920ca4ca68db
-        container_name: y1245gqplykoixklexgi0qme
+        image: ${COOLIFY_IMAGE:-y1245gqplykoixklexgi0qme}:${COOLIFY_IMAGE_TAG:-latest}
+        # container_name MUST be absent for blue-green: Docker creates unique name per deploy
         restart: unless-stopped
         expose:
             - '80'
