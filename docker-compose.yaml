@@ -14,14 +14,14 @@ services:
                     - valkiria-web
         labels:
             - traefik.enable=true
-            - traefik.http.routers.valkiria-web.rule=Host(`valkirialab.com`)
+            - traefik.http.routers.valkiria-web.rule=Host(`valkirialab.com`)||Host(`www.valkirialab.com`)
             - traefik.http.routers.valkiria-web.entryPoints=http,https
             - traefik.http.routers.valkiria-web.service=valkiria-web
             - traefik.http.services.valkiria-web.loadbalancer.server.port=80
             - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
             - traefik.http.routers.valkiria-web-http.entryPoints=http
             - traefik.http.routers.valkiria-web-http.middlewares=redirect-to-https
-            - traefik.http.routers.valkiria-web-http.rule=Host(`valkirialab.com`)
+            - traefik.http.routers.valkiria-web-http.rule=Host(`valkirialab.com`)||Host(`www.valkirialab.com`)
             - coolify.managed=true
 networks:
     coolify:
