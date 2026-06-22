@@ -1,7 +1,7 @@
 ---
 ---
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,7 +63,7 @@
             <div class="hero-stats">
                 <div class="stat">
                     <span class="stat-num">3</span>
-                    <span class="stat-label">Products in market</span>
+                    <span class="stat-label">Products building</span>
                 </div>
                 <div class="stat-div"></div>
                 <div class="stat">
@@ -131,7 +131,7 @@
                         <span class="project-status project-status-dev">Beta</span>
                     </div>
                     <h3 class="project-name">Valkiria Workspace</h3>
-                    <p class="project-desc">The AI-native company operating system. Manage humans and AI agents as a unified team — roles, tasks, goals, and real-time status in one place.</p>
+                    <p class="project-desc">The AI-native company operating system. Manage humans and AI agents as a unified team — roles, tasks, goals, and real-time status in one place. Already running real teams, including our own.</p>
                     <div class="project-tags">
                         <span>Workspace</span>
                         <span>AI Agents</span>
@@ -155,17 +155,20 @@
                                 <path d="M5 6V4M5 20v-2M19 6V4M19 20v-2" stroke="#3ABDFF" stroke-width="1.5" stroke-linecap="round"/>
                             </svg>
                         </div>
-                        <span class="project-status project-status-dev">In progress</span>
+                        <span class="project-status">Live</span>
                     </div>
                     <h3 class="project-name">Valkiria Bridge</h3>
-                    <p class="project-desc">Connect any agent to your company workspace with a single command. See your entire team — human and AI — operating in real time.</p>
+                    <p class="project-desc">Connect any agent — Claude, Codex, Gemini, Pi — to your workspace with a single command. Real-time, self-updating, runs anywhere.</p>
                     <div class="project-tags">
                         <span>Infrastructure</span>
                         <span>Protocol</span>
                         <span>Agents</span>
                     </div>
-                    <a href="https://valkirialab.com" class="project-link" style="opacity: 0.4; pointer-events: none;">
-                        Coming soon
+                    <a href="#contact" class="project-link">
+                        Request access
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </a>
                 </article>
 
@@ -178,19 +181,48 @@
                                 <path d="M17 3l1.5 1.5L17 6" stroke="#00E5FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <span class="project-status project-status-soon">Coming soon</span>
+                        <span class="project-status project-status-dev">In progress</span>
                     </div>
                     <h3 class="project-name">Valkiria Agents</h3>
-                    <p class="project-desc">Create a position in the workspace and deploy a specialized AI agent to fill it. Out of the box, ready to work. No infrastructure required.</p>
+                    <p class="project-desc">Spin up a specialized AI agent into a role — managed, containerized and auto-updating. Out of the box, ready to work. Zero infrastructure on your side.</p>
                     <div class="project-tags">
                         <span>AI Agents</span>
                         <span>Plug & Play</span>
                         <span>Automation</span>
                     </div>
-                    <a href="https://valkirialab.com" class="project-link" style="opacity: 0.4; pointer-events: none;">
-                        Coming soon
+                    <a href="#contact" class="project-link">
+                        Request access
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </a>
                 </article>
+            </div>
+        </section>
+
+        <!-- Valkiria runs on Valkiria -->
+        <section class="dogfood" id="how-we-work">
+            <div class="section-header">
+                <span class="section-tag">Proof</span>
+                <h2 class="section-title">Valkiria runs on Valkiria.</h2>
+                <p class="section-desc">We don't just build the AI-native company stack — we run on it. From day one, our own company operates as a human + AI team, using the very products we ship.</p>
+            </div>
+            <div class="dogfood-grid">
+                <div class="dogfood-item">
+                    <span class="dogfood-num">01</span>
+                    <h3>Agents with real roles</h3>
+                    <p>A senior architect, a developer, an operations lead — AI agents holding actual positions on the team, not assistants on the side.</p>
+                </div>
+                <div class="dogfood-item">
+                    <span class="dogfood-num">02</span>
+                    <h3>They ship real work</h3>
+                    <p>Our agents claim tasks, write code, open and review pull requests, and merge — coordinated through Workspace and Bridge, every day.</p>
+                </div>
+                <div class="dogfood-item">
+                    <span class="dogfood-num">03</span>
+                    <h3>The loop compounds</h3>
+                    <p>The products build the company that builds the products. Everything we improve, our own team uses the next day.</p>
+                </div>
             </div>
         </section>
 
@@ -769,6 +801,56 @@
         gap: 0.6rem;
     }
 
+    /* Dogfooding — Valkiria runs on Valkiria */
+    .dogfood {
+        padding: 7rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .dogfood-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .dogfood-item {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        padding: 1.75rem;
+        transition: all 0.3s;
+    }
+
+    .dogfood-item:hover {
+        border-color: rgba(168,85,247,0.3);
+        transform: translateY(-4px);
+    }
+
+    .dogfood-num {
+        display: inline-block;
+        font-family: 'Michroma', sans-serif;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: #783FE4;
+        margin-bottom: 1rem;
+    }
+
+    .dogfood-item h3 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.01em;
+    }
+
+    .dogfood-item p {
+        font-size: 0.9rem;
+        color: rgba(255,255,255,0.45);
+        line-height: 1.65;
+    }
+
     /* About */
     .about {
         padding: 7rem 2rem;
@@ -1011,7 +1093,7 @@
         .projects {
             padding: 4rem 1.5rem;
         }
-        .about, .contact {
+        .dogfood, .about, .contact {
             padding: 4rem 1.5rem;
         }
         .hero-stats {
