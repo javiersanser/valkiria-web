@@ -1,0 +1,352 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  ogType?: string;
+  canonicalURL?: string;
+  pubDate?: Date;
+}
+
+const { title, description, ogImage = '/og-image.png', ogType = 'website', canonicalURL } = Astro.props;
+const siteTitle = title === 'Valkiria Lab' ? title : `${title} — Valkiria Lab`;
+const siteUrl = 'https://valkirialab.com';
+const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+const fullCanonical = canonicalURL || new URL(Astro.url.pathname, siteUrl).href;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{siteTitle}</title>
+    <meta name="description" content={description}>
+    <link rel="canonical" href={fullCanonical}>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType}>
+    <meta property="og:url" content={fullCanonical}>
+    <meta property="og:title" content={siteTitle}>
+    <meta property="og:description" content={description}>
+    <meta property="og:image" content={fullOgImage}>
+    <meta property="og:site_name" content="Valkiria Lab">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={siteTitle}>
+    <meta name="twitter:description" content={description}>
+    <meta name="twitter:image" content={fullOgImage}>
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Valkiria Lab",
+      "url": "https://valkirialab.com",
+      "logo": "https://valkirialab.com/branding/logotipo-valkiria-lab-horizontal-gradient-dark.svg",
+      "description": "AI Agents as first-class workers. We build the infrastructure for agentic companies.",
+      "sameAs": []
+    })} />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Michroma&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="/branding/logotipo-valkiria-lab-horizontal-gradient-dark.svg" alt="Valkiria Lab" height="28">
+            </a>
+            <nav class="nav">
+                <a href="/blog">Blog</a>
+                <a href="/#projects">Projects</a>
+                <a href="/#about">About</a>
+                <a href="/#contact" class="nav-cta">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <slot />
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <a href="/" class="logo footer-logo">
+                    <img src="/branding/logotipo-valkiria-lab-horizontal-white-dark.svg" alt="Valkiria Lab" height="24">
+                </a>
+                <p class="footer-tagline">Building what comes next.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <span class="footer-col-title">Products</span>
+                    <a href="https://workspace.valkirialab.com" target="_blank">Workspace</a>
+                    <a href="/#projects">Bridge</a>
+                    <a href="/#projects">Agents</a>
+                </div>
+                <div class="footer-col">
+                    <span class="footer-col-title">Company</span>
+                    <a href="/blog">Blog</a>
+                    <a href="/#about">About</a>
+                    <a href="/#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Valkiria Lab. All rights reserved.</span>
+        </div>
+    </footer>
+</body>
+</html>
+
+<style is:global>
+    *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: #050507;
+        color: #e2e8f0;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+    }
+
+    ::selection {
+        background: rgba(168, 85, 247, 0.3);
+        color: #fff;
+    }
+
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #0a0a0f;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #2d2d3a;
+        border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #3d3d4a;
+    }
+
+    a {
+        color: #3ABDFF;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    a:hover {
+        color: #00E5FF;
+    }
+</style>
+
+<style>
+    .bg-grid {
+        position: fixed;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+        background-size: 60px 60px;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .bg-glow {
+        position: fixed;
+        top: -400px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 800px;
+        height: 800px;
+        background: radial-gradient(ellipse at center,
+                rgba(120, 63, 228, 0.15) 0%,
+                rgba(58, 189, 255, 0.08) 40%,
+                transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        backdrop-filter: blur(12px);
+        background: rgba(5, 5, 7, 0.8);
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .header-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .logo img {
+        height: 36px;
+        width: auto;
+    }
+
+    .footer-logo img {
+        height: 30px;
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .nav a {
+        color: rgba(255,255,255,0.6);
+        text-decoration: none;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+
+    .nav a:hover {
+        color: #fff;
+    }
+
+    .nav-cta {
+        background: rgba(168, 85, 247, 0.15);
+        border: 1px solid rgba(168, 85, 247, 0.3);
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        color: #783FE4 !important;
+        transition: all 0.2s !important;
+    }
+
+    .nav-cta:hover {
+        background: rgba(168, 85, 247, 0.25) !important;
+        border-color: rgba(168, 85, 247, 0.5) !important;
+    }
+
+    main {
+        position: relative;
+        z-index: 1;
+    }
+
+    .footer {
+        position: relative;
+        z-index: 1;
+        border-top: 1px solid rgba(255,255,255,0.06);
+        padding: 4rem 2rem 2rem;
+    }
+
+    .footer-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .footer-left {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .footer-tagline {
+        color: rgba(255,255,255,0.4);
+        font-size: 0.85rem;
+    }
+
+    .footer-links {
+        display: flex;
+        gap: 4rem;
+    }
+
+    .footer-col {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .footer-col-title {
+        font-weight: 600;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: rgba(255,255,255,0.6);
+        margin-bottom: 0.25rem;
+    }
+
+    .footer-col a {
+        color: rgba(255,255,255,0.35);
+        text-decoration: none;
+        font-size: 0.85rem;
+        transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+        color: #fff;
+    }
+
+    .footer-bottom {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255,255,255,0.06);
+        color: rgba(255,255,255,0.25);
+        font-size: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+        .header-inner {
+            padding: 0.75rem 1rem;
+        }
+
+        .nav {
+            gap: 1rem;
+        }
+
+        .nav a {
+            font-size: 0.8rem;
+        }
+
+        .footer-inner {
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .footer-links {
+            gap: 2rem;
+        }
+    }
+</style>

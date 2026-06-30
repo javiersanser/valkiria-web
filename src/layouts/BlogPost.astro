@@ -1,0 +1,300 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  heroImage?: string;
+  author?: string;
+  tags?: string[];
+}
+
+const { title, description, pubDate, updatedDate, heroImage, author = 'Valkiria Lab', tags = [] } = Astro.props;
+
+const formattedDate = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const formattedUpdatedDate = updatedDate?.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const ogImage = heroImage || '/og-image.png';
+---
+<BaseLayout title={title} description={description} ogImage={ogImage} ogType="article">
+  <article class="blog-post">
+    <header class="post-header">
+      <a href="/blog" class="back-link">← Back to Blog</a>
+      <div class="post-meta">
+        <span class="section-tag">Blog</span>
+        <h1 class="post-title">{title}</h1>
+        <div class="post-info">
+          <span class="post-author">{author}</span>
+          <span class="post-separator">·</span>
+          <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+          {updatedDate && (
+            <span class="post-updated"> (Updated {formattedUpdatedDate})</span>
+          )}
+        </div>
+        {tags.length > 0 && (
+          <div class="post-tags">
+            {tags.map((tag) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        )}
+      </div>
+    </header>
+
+    {heroImage && (
+      <div class="post-hero">
+        <img src={heroImage} alt={title} />
+      </div>
+    )}
+
+    <div class="post-content">
+      <slot />
+    </div>
+
+    <footer class="post-footer">
+      <div class="post-footer-inner">
+        <a href="/blog" class="back-link">← Back to Blog</a>
+        <a href="/#contact" class="nav-cta">Get in touch</a>
+      </div>
+    </footer>
+  </article>
+
+  <!-- Article JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": title,
+    "description": description,
+    "datePublished": pubDate.toISOString(),
+    ...(updatedDate && { "dateModified": updatedDate.toISOString() }),
+    "author": {
+      "@type": "Organization",
+      "name": "Valkiria Lab",
+      "url": "https://valkirialab.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Valkiria Lab",
+      "url": "https://valkirialab.com"
+    },
+    ...(heroImage && { "image": heroImage.startsWith('http') ? heroImage : `https://valkirialab.com${heroImage}` })
+  })} />
+</BaseLayout>
+
+<style>
+  .blog-post {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 8rem 2rem 4rem;
+  }
+
+  .back-link {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+
+  .back-link:hover {
+    color: #3ABDFF;
+  }
+
+  .post-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .post-title {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 800;
+    font-family: 'Michroma', sans-serif;
+    color: #fff;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .post-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255,255,255,0.45);
+    font-size: 0.9rem;
+  }
+
+  .post-author {
+    color: #783FE4;
+    font-weight: 500;
+  }
+
+  .post-separator {
+    color: rgba(255,255,255,0.2);
+  }
+
+  .post-updated {
+    color: rgba(255,255,255,0.3);
+    font-size: 0.85rem;
+  }
+
+  .post-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.06);
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .post-hero {
+    margin: 2.5rem -1rem;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .post-hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .post-content {
+    margin-top: 3rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.75);
+  }
+
+  .post-content :global(h2) {
+    font-family: 'Michroma', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 2.5rem 0 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .post-content :global(h3) {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 2rem 0 0.75rem;
+  }
+
+  .post-content :global(p) {
+    margin-bottom: 1.25rem;
+  }
+
+  .post-content :global(ul), .post-content :global(ol) {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .post-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .post-content :global(blockquote) {
+    border-left: 3px solid #783FE4;
+    padding-left: 1.25rem;
+    margin: 1.5rem 0;
+    color: rgba(255,255,255,0.6);
+    font-style: italic;
+  }
+
+  .post-content :global(code) {
+    background: rgba(255,255,255,0.06);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #3ABDFF;
+  }
+
+  .post-content :global(pre) {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 1.25rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  .post-content :global(pre code) {
+    background: none;
+    padding: 0;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .post-content :global(strong) {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .post-content :global(hr) {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin: 2.5rem 0;
+  }
+
+  .post-content :global(a) {
+    color: #3ABDFF;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(58, 189, 255, 0.3);
+    transition: all 0.2s;
+  }
+
+  .post-content :global(a:hover) {
+    color: #00E5FF;
+    border-color: rgba(0, 229, 255, 0.5);
+  }
+
+  .post-content :global(img) {
+    max-width: 100%;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+  }
+
+  .post-footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .post-footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .blog-post {
+      padding: 6rem 1rem 3rem;
+    }
+
+    .post-footer-inner {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+</style>
