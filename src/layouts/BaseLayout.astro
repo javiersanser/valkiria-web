@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 export interface Props {
   title: string;
   description: string;
@@ -130,7 +132,7 @@ const fullCanonical = canonicalURL || new URL(Astro.url.pathname, siteUrl).href;
     }
 
     ::selection {
-        background: rgba(168, 85, 247, 0.3);
+        background: var(--border-brand-violet);
         color: #fff;
     }
 
@@ -149,12 +151,12 @@ const fullCanonical = canonicalURL || new URL(Astro.url.pathname, siteUrl).href;
     }
 
     a {
-        color: #3ABDFF;
+        color: var(--brand-blue);
         text-decoration: none;
         transition: color 0.2s;
     }
     a:hover {
-        color: #00E5FF;
+        color: var(--brand-cyan);
     }
 </style>
 
@@ -178,8 +180,8 @@ const fullCanonical = canonicalURL || new URL(Astro.url.pathname, siteUrl).href;
         width: 800px;
         height: 800px;
         background: radial-gradient(ellipse at center,
-                rgba(120, 63, 228, 0.15) 0%,
-                rgba(58, 189, 255, 0.08) 40%,
+                var(--glow-brand-purple) 0%,
+                var(--glow-brand-blue) 40%,
                 transparent 70%);
         pointer-events: none;
         z-index: 0;
@@ -241,17 +243,17 @@ const fullCanonical = canonicalURL || new URL(Astro.url.pathname, siteUrl).href;
     }
 
     .nav-cta {
-        background: rgba(168, 85, 247, 0.15);
-        border: 1px solid rgba(168, 85, 247, 0.3);
+        background: var(--surface-brand-violet);
+        border: 1px solid var(--border-brand-violet);
         padding: 0.5rem 1rem;
         border-radius: 8px;
-        color: #783FE4 !important;
+        color: var(--brand-purple) !important;
         transition: all 0.2s !important;
     }
 
     .nav-cta:hover {
-        background: rgba(168, 85, 247, 0.25) !important;
-        border-color: rgba(168, 85, 247, 0.5) !important;
+        background: var(--surface-brand-violet-hover) !important;
+        border-color: var(--border-brand-violet-strong) !important;
     }
 
     main {
