@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 export interface Props {
   title: string;
   description: string;
@@ -149,12 +151,12 @@ const fullCanonical = canonicalURL || new URL(Astro.url.pathname, siteUrl).href;
     }
 
     a {
-        color: #3ABDFF;
+        color: var(--brand-blue);
         text-decoration: none;
         transition: color 0.2s;
     }
     a:hover {
-        color: #00E5FF;
+        color: var(--brand-cyan);
     }
 </style>
 
@@ -245,7 +247,7 @@ const fullCanonical = canonicalURL || new URL(Astro.url.pathname, siteUrl).href;
         border: 1px solid rgba(168, 85, 247, 0.3);
         padding: 0.5rem 1rem;
         border-radius: 8px;
-        color: #783FE4 !important;
+        color: var(--brand-purple) !important;
         transition: all 0.2s !important;
     }
 
