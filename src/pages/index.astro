@@ -1,71 +1,11 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valkiria Lab — Building what comes next</title>
-    <meta name="description" content="AI Agents as first-class workers. We build the infrastructure for agentic companies — Workspace, Bridge, and specialized agents that ship real work.">
-    <link rel="canonical" href="https://valkirialab.com/">
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://valkirialab.com/">
-    <meta property="og:title" content="Valkiria Lab — The next generation of your workforce is digital">
-    <meta property="og:description" content="AI Agents as first-class workers. We build the infrastructure for agentic companies — Workspace, Bridge, and specialized agents that ship real work.">
-    <meta property="og:image" content="https://valkirialab.com/og-image.png">
-    <meta property="og:site_name" content="Valkiria Lab">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Valkiria Lab — The next generation of your workforce is digital">
-    <meta name="twitter:description" content="AI Agents as first-class workers. We build the infrastructure for agentic companies — Workspace, Bridge, and specialized agents that ship real work.">
-    <meta name="twitter:image" content="https://valkirialab.com/og-image.png">
-
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Valkiria Lab",
-      "url": "https://valkirialab.com",
-      "logo": "https://valkirialab.com/branding/logotipo-valkiria-lab-horizontal-gradient-dark.svg",
-      "description": "AI Agents as first-class workers. We build the infrastructure for agentic companies.",
-      "sameAs": []
-    }
-    </script>
-
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Michroma&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Ambient background -->
-    <div class="bg-grid"></div>
-    <div class="bg-glow"></div>
-
-    <!-- Header -->
-    <header class="header">
-        <div class="header-inner">
-            <a href="/" class="logo">
-                <img src="/branding/logotipo-valkiria-lab-horizontal-gradient-dark.svg" alt="Valkiria Lab" height="28">
-            </a>
-            <nav class="nav">
-                <a href="/blog">Blog</a>
-                <a href="#projects">Projects</a>
-                <a href="#about">About</a>
-                <a href="#contact" class="nav-cta">Contact</a>
-            </nav>
-        </div>
-    </header>
-
-    <main>
+<BaseLayout
+    title="Valkiria Lab"
+    description="AI Agents as first-class workers. We build the infrastructure for agentic companies — Workspace, Bridge, and specialized agents that ship real work."
+    canonicalURL="https://valkirialab.com/"
+>
         <!-- Hero -->
         <section class="hero">
             <div class="hero-badge">
@@ -152,10 +92,10 @@
                     <div class="project-card-top">
                         <div class="project-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="3" y="3" width="8" height="8" rx="2" stroke="#783FE4" stroke-width="1.5"/>
-                                <rect x="13" y="3" width="8" height="8" rx="2" stroke="#783FE4" stroke-width="1.5"/>
-                                <rect x="3" y="13" width="8" height="8" rx="2" stroke="#783FE4" stroke-width="1.5"/>
-                                <rect x="13" y="13" width="8" height="8" rx="2" stroke="#3ABDFF" stroke-width="1.5"/>
+                                <rect x="3" y="3" width="8" height="8" rx="2" stroke="var(--brand-purple)" stroke-width="1.5"/>
+                                <rect x="13" y="3" width="8" height="8" rx="2" stroke="var(--brand-purple)" stroke-width="1.5"/>
+                                <rect x="3" y="13" width="8" height="8" rx="2" stroke="var(--brand-purple)" stroke-width="1.5"/>
+                                <rect x="13" y="13" width="8" height="8" rx="2" stroke="var(--brand-blue)" stroke-width="1.5"/>
                             </svg>
                         </div>
                         <span class="project-status project-status-dev">Beta</span>
@@ -179,10 +119,10 @@
                     <div class="project-card-top">
                         <div class="project-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="5" cy="12" r="2.5" stroke="#3ABDFF" stroke-width="1.5"/>
-                                <circle cx="19" cy="12" r="2.5" stroke="#3ABDFF" stroke-width="1.5"/>
-                                <path d="M7.5 12h9" stroke="#3ABDFF" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 2"/>
-                                <path d="M5 6V4M5 20v-2M19 6V4M19 20v-2" stroke="#3ABDFF" stroke-width="1.5" stroke-linecap="round"/>
+                                <circle cx="5" cy="12" r="2.5" stroke="var(--brand-blue)" stroke-width="1.5"/>
+                                <circle cx="19" cy="12" r="2.5" stroke="var(--brand-blue)" stroke-width="1.5"/>
+                                <path d="M7.5 12h9" stroke="var(--brand-blue)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 2"/>
+                                <path d="M5 6V4M5 20v-2M19 6V4M19 20v-2" stroke="var(--brand-blue)" stroke-width="1.5" stroke-linecap="round"/>
                             </svg>
                         </div>
                         <span class="project-status">Live</span>
@@ -206,9 +146,9 @@
                     <div class="project-card-top">
                         <div class="project-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="8" r="3.5" stroke="#00E5FF" stroke-width="1.5"/>
-                                <path d="M5 20c0-3.5 3-5.5 7-5.5s7 2 7 5.5" stroke="#00E5FF" stroke-width="1.5" stroke-linecap="round"/>
-                                <path d="M17 3l1.5 1.5L17 6" stroke="#00E5FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="8" r="3.5" stroke="var(--brand-cyan)" stroke-width="1.5"/>
+                                <path d="M5 20c0-3.5 3-5.5 7-5.5s7 2 7 5.5" stroke="var(--brand-cyan)" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M17 3l1.5 1.5L17 6" stroke="var(--brand-cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
                         <span class="project-status project-status-dev">In progress</span>
@@ -314,77 +254,7 @@
                 </a>
             </div>
         </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-left">
-                <a href="/" class="logo footer-logo">
-                    <img src="/branding/logotipo-valkiria-lab-horizontal-white-dark.svg" alt="Valkiria Lab" height="24">
-                </a>
-                <p class="footer-tagline">Building what comes next.</p>
-            </div>
-            <div class="footer-links">
-                <div class="footer-col">
-                    <span class="footer-col-title">Products</span>
-                    <a href="https://workspace.valkirialab.com" target="_blank">Workspace</a>
-                    <a href="https://valkirialab.com#projects">Bridge</a>
-                    <a href="https://valkirialab.com#projects">Agents</a>
-                </div>
-                <div class="footer-col">
-                    <span class="footer-col-title">Company</span>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <span>© 2026 Valkiria Lab. All rights reserved.</span>
-        </div>
-    </footer>
-</body>
-</html>
-
-<style is:global>
-    *, *::before, *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        background: #050507;
-        color: #e2e8f0;
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased;
-        overflow-x: hidden;
-    }
-
-    ::selection {
-        background: rgba(168, 85, 247, 0.3);
-        color: #fff;
-    }
-
-    ::-webkit-scrollbar {
-        width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-        background: #0a0a0f;
-    }
-    ::-webkit-scrollbar-thumb {
-        background: #2d2d3a;
-        border-radius: 3px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-        background: #3d3d4a;
-    }
-</style>
+</BaseLayout>
 
 <style>
     /* Background */
@@ -407,8 +277,8 @@
         width: 800px;
         height: 800px;
         background: radial-gradient(ellipse at center,
-                rgba(120, 63, 228, 0.15) 0%,
-                rgba(58, 189, 255, 0.08) 40%,
+                rgba(var(--brand-purple-rgb), 0.15) 0%,
+                rgba(var(--brand-blue-rgb), 0.08) 40%,
                 transparent 70%);
         pointer-events: none;
         z-index: 0;
@@ -475,7 +345,7 @@
         border: 1px solid rgba(168, 85, 247, 0.3);
         padding: 0.5rem 1rem;
         border-radius: 8px;
-        color: #783FE4 !important;
+        color: var(--brand-purple) !important;
         transition: all 0.2s !important;
     }
 
@@ -510,7 +380,7 @@
         border-radius: 100px;
         font-size: 0.8rem;
         font-weight: 500;
-        color: #783FE4;
+        color: var(--brand-purple);
         margin-bottom: 2rem;
         width: fit-content;
     }
@@ -519,7 +389,7 @@
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background: #783FE4;
+        background: var(--brand-purple);
         animation: pulse 2s ease-in-out infinite;
     }
 
@@ -539,7 +409,7 @@
     }
 
     .gradient-text {
-        background: linear-gradient(135deg, #783FE4 0%, #3ABDFF 50%, #00E5FF 100%);
+        background: var(--gradient-brand);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -574,7 +444,7 @@
     }
 
     .btn-primary {
-        background: linear-gradient(135deg, #783FE4, #3ABDFF);
+        background: var(--gradient-brand-compact);
         color: #fff;
         box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
     }
@@ -681,7 +551,7 @@
         font-family: 'Michroma', sans-serif;
         text-transform: uppercase;
         letter-spacing: 0.15em;
-        color: #783FE4;
+        color: var(--brand-purple);
         margin-bottom: 1rem;
     }
 
@@ -716,7 +586,7 @@
     }
 
     .project-card {
-        background: rgba(255,255,255,0.03);
+        background: var(--surface-card);
         border: 1px solid rgba(255,255,255,0.08);
         border-radius: 16px;
         padding: 1.75rem;
@@ -821,7 +691,7 @@
         display: inline-flex;
         align-items: center;
         gap: 0.4rem;
-        color: #783FE4;
+        color: var(--brand-purple);
         text-decoration: none;
         font-size: 0.85rem;
         font-weight: 500;
@@ -847,7 +717,7 @@
     }
 
     .dogfood-item {
-        background: rgba(255,255,255,0.03);
+        background: var(--surface-card);
         border: 1px solid rgba(255,255,255,0.08);
         border-radius: 16px;
         padding: 1.75rem;
@@ -864,7 +734,7 @@
         font-family: 'Michroma', sans-serif;
         font-size: 0.8rem;
         font-weight: 700;
-        color: #783FE4;
+        color: var(--brand-purple);
         margin-bottom: 1rem;
     }
 
@@ -919,7 +789,7 @@
     .value-num {
         font-size: 0.7rem;
         font-weight: 700;
-        color: #783FE4;
+        color: var(--brand-purple);
         font-variant-numeric: tabular-nums;
         width: 1.5rem;
     }
@@ -967,7 +837,7 @@
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.12em;
-        color: #783FE4;
+        color: var(--brand-purple);
     }
 
     .vision-text {
