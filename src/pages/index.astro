@@ -1,72 +1,11 @@
 ---
-import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valkiria Lab — Building what comes next</title>
-    <meta name="description" content="AI Agents as first-class workers. We build the infrastructure for agentic companies — Workspace, Bridge, and specialized agents that ship real work.">
-    <link rel="canonical" href="https://valkirialab.com/">
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://valkirialab.com/">
-    <meta property="og:title" content="Valkiria Lab — The next generation of your workforce is digital">
-    <meta property="og:description" content="AI Agents as first-class workers. We build the infrastructure for agentic companies — Workspace, Bridge, and specialized agents that ship real work.">
-    <meta property="og:image" content="https://valkirialab.com/og-image.png">
-    <meta property="og:site_name" content="Valkiria Lab">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Valkiria Lab — The next generation of your workforce is digital">
-    <meta name="twitter:description" content="AI Agents as first-class workers. We build the infrastructure for agentic companies — Workspace, Bridge, and specialized agents that ship real work.">
-    <meta name="twitter:image" content="https://valkirialab.com/og-image.png">
-
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Valkiria Lab",
-      "url": "https://valkirialab.com",
-      "logo": "https://valkirialab.com/branding/logotipo-valkiria-lab-horizontal-gradient-dark.svg",
-      "description": "AI Agents as first-class workers. We build the infrastructure for agentic companies.",
-      "sameAs": []
-    }
-    </script>
-
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Michroma&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Ambient background -->
-    <div class="bg-grid"></div>
-    <div class="bg-glow"></div>
-
-    <!-- Header -->
-    <header class="header">
-        <div class="header-inner">
-            <a href="/" class="logo">
-                <img src="/branding/logotipo-valkiria-lab-horizontal-gradient-dark.svg" alt="Valkiria Lab" height="28">
-            </a>
-            <nav class="nav">
-                <a href="/blog">Blog</a>
-                <a href="#projects">Projects</a>
-                <a href="#about">About</a>
-                <a href="#contact" class="nav-cta">Contact</a>
-            </nav>
-        </div>
-    </header>
-
-    <main>
+<BaseLayout
+    title="Valkiria Lab"
+    description="AI Agents as first-class workers. We build the infrastructure for agentic companies — Workspace, Bridge, and specialized agents that ship real work."
+    canonicalURL="https://valkirialab.com/"
+>
         <!-- Hero -->
         <section class="hero">
             <div class="hero-badge">
@@ -315,77 +254,7 @@ import '../styles/global.css';
                 </a>
             </div>
         </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-left">
-                <a href="/" class="logo footer-logo">
-                    <img src="/branding/logotipo-valkiria-lab-horizontal-white-dark.svg" alt="Valkiria Lab" height="24">
-                </a>
-                <p class="footer-tagline">Building what comes next.</p>
-            </div>
-            <div class="footer-links">
-                <div class="footer-col">
-                    <span class="footer-col-title">Products</span>
-                    <a href="https://workspace.valkirialab.com" target="_blank">Workspace</a>
-                    <a href="https://valkirialab.com#projects">Bridge</a>
-                    <a href="https://valkirialab.com#projects">Agents</a>
-                </div>
-                <div class="footer-col">
-                    <span class="footer-col-title">Company</span>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <span>© 2026 Valkiria Lab. All rights reserved.</span>
-        </div>
-    </footer>
-</body>
-</html>
-
-<style is:global>
-    *, *::before, *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        background: #050507;
-        color: #e2e8f0;
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased;
-        overflow-x: hidden;
-    }
-
-    ::selection {
-        background: rgba(168, 85, 247, 0.3);
-        color: #fff;
-    }
-
-    ::-webkit-scrollbar {
-        width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-        background: #0a0a0f;
-    }
-    ::-webkit-scrollbar-thumb {
-        background: #2d2d3a;
-        border-radius: 3px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-        background: #3d3d4a;
-    }
-</style>
+</BaseLayout>
 
 <style>
     /* Background */
@@ -408,8 +277,8 @@ import '../styles/global.css';
         width: 800px;
         height: 800px;
         background: radial-gradient(ellipse at center,
-                rgba(120, 63, 228, 0.15) 0%,
-                rgba(58, 189, 255, 0.08) 40%,
+                rgba(var(--brand-purple-rgb), 0.15) 0%,
+                rgba(var(--brand-blue-rgb), 0.08) 40%,
                 transparent 70%);
         pointer-events: none;
         z-index: 0;
@@ -575,7 +444,7 @@ import '../styles/global.css';
     }
 
     .btn-primary {
-        background: var(--gradient-brand-short);
+        background: var(--gradient-brand-compact);
         color: #fff;
         box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
     }
@@ -717,7 +586,7 @@ import '../styles/global.css';
     }
 
     .project-card {
-        background: rgba(255,255,255,0.03);
+        background: var(--surface-card);
         border: 1px solid rgba(255,255,255,0.08);
         border-radius: 16px;
         padding: 1.75rem;
@@ -848,7 +717,7 @@ import '../styles/global.css';
     }
 
     .dogfood-item {
-        background: rgba(255,255,255,0.03);
+        background: var(--surface-card);
         border: 1px solid rgba(255,255,255,0.08);
         border-radius: 16px;
         padding: 1.75rem;

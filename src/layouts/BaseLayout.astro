@@ -180,8 +180,8 @@ const fullCanonical = canonicalURL || new URL(Astro.url.pathname, siteUrl).href;
         width: 800px;
         height: 800px;
         background: radial-gradient(ellipse at center,
-                rgba(120, 63, 228, 0.15) 0%,
-                rgba(58, 189, 255, 0.08) 40%,
+                rgba(var(--brand-purple-rgb), 0.15) 0%,
+                rgba(var(--brand-blue-rgb), 0.08) 40%,
                 transparent 70%);
         pointer-events: none;
         z-index: 0;
