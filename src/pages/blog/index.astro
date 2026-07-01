@@ -74,7 +74,7 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
     font-family: 'Michroma', sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: #783FE4;
+    color: var(--brand-purple);
     margin-bottom: 1rem;
   }
 
@@ -89,7 +89,7 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, #783FE4 0%, #3ABDFF 50%, #00E5FF 100%);
+    background: var(--gradient-brand);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -110,7 +110,7 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
 
   .post-card {
     display: block;
-    background: rgba(255,255,255,0.03);
+    background: var(--surface-card);
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 16px;
     padding: 1.75rem;
@@ -124,14 +124,14 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(168,85,247,0.05) 0%, transparent 60%);
+    background: linear-gradient(135deg, var(--surface-brand-violet-subtle) 0%, transparent 60%);
     opacity: 0;
     transition: opacity 0.3s;
     pointer-events: none;
   }
 
   .post-card:hover {
-    border-color: rgba(168,85,247,0.3);
+    border-color: var(--border-brand-violet);
     transform: translateY(-2px);
     box-shadow: 0 12px 32px rgba(0,0,0,0.3);
   }
@@ -157,8 +157,8 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #783FE4;
-    background: rgba(120, 63, 228, 0.12);
+    color: var(--brand-purple);
+    background: var(--surface-brand-purple-soft);
     padding: 0.15rem 0.5rem;
     border-radius: 100px;
   }
@@ -186,12 +186,12 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
     gap: 0.4rem;
     font-size: 0.85rem;
     font-weight: 600;
-    color: #3ABDFF;
+    color: var(--brand-blue);
     transition: color 0.2s;
   }
 
   .post-card:hover .post-card-link {
-    color: #00E5FF;
+    color: var(--brand-cyan);
   }
 
   .empty-state {

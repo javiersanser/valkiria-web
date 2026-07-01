@@ -1,0 +1,30 @@
+:root {
+  --brand-purple: #783FE4;
+  --brand-blue: #3ABDFF;
+  --brand-cyan: #00E5FF;
+  --brand-violet: #A855F7;
+  --brand-indigo: #6366F1;
+
+  --gradient-brand: linear-gradient(135deg, var(--brand-purple) 0%, var(--brand-blue) 50%, var(--brand-cyan) 100%);
+  --gradient-brand-short: linear-gradient(135deg, var(--brand-purple), var(--brand-blue));
+
+  --surface-card: rgba(255,255,255,0.03);
+  --surface-brand-purple-soft: rgba(120, 63, 228, 0.12);
+  --surface-brand-violet-subtle: rgba(168,85,247,0.05);
+  --surface-brand-violet-soft: rgba(168,85,247,0.1);
+  --surface-brand-violet: rgba(168, 85, 247, 0.15);
+  --surface-brand-violet-hover: rgba(168, 85, 247, 0.25);
+  --surface-brand-indigo-subtle: rgba(99,102,241,0.05);
+
+  --border-brand-violet-soft: rgba(168, 85, 247, 0.2);
+  --border-brand-violet: rgba(168,85,247,0.3);
+  --border-brand-violet-strong: rgba(168, 85, 247, 0.5);
+  --border-brand-blue: rgba(58, 189, 255, 0.3);
+  --border-brand-cyan: rgba(0, 229, 255, 0.5);
+
+  --glow-brand-violet: rgba(168, 85, 247, 0.3);
+  --glow-brand-violet-strong: rgba(168, 85, 247, 0.5);
+  --glow-brand-purple: rgba(120, 63, 228, 0.15);
+  --glow-brand-blue: rgba(58, 189, 255, 0.08);
+  --text-brand-violet-muted: rgba(168, 85, 247, 0.4);
+}

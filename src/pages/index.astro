@@ -1,4 +1,5 @@
 ---
+import '../styles/global.css';
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -152,10 +153,10 @@
                     <div class="project-card-top">
                         <div class="project-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="3" y="3" width="8" height="8" rx="2" stroke="#783FE4" stroke-width="1.5"/>
-                                <rect x="13" y="3" width="8" height="8" rx="2" stroke="#783FE4" stroke-width="1.5"/>
-                                <rect x="3" y="13" width="8" height="8" rx="2" stroke="#783FE4" stroke-width="1.5"/>
-                                <rect x="13" y="13" width="8" height="8" rx="2" stroke="#3ABDFF" stroke-width="1.5"/>
+                                <rect x="3" y="3" width="8" height="8" rx="2" stroke="var(--brand-purple)" stroke-width="1.5"/>
+                                <rect x="13" y="3" width="8" height="8" rx="2" stroke="var(--brand-purple)" stroke-width="1.5"/>
+                                <rect x="3" y="13" width="8" height="8" rx="2" stroke="var(--brand-purple)" stroke-width="1.5"/>
+                                <rect x="13" y="13" width="8" height="8" rx="2" stroke="var(--brand-blue)" stroke-width="1.5"/>
                             </svg>
                         </div>
                         <span class="project-status project-status-dev">Beta</span>
@@ -179,10 +180,10 @@
                     <div class="project-card-top">
                         <div class="project-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="5" cy="12" r="2.5" stroke="#3ABDFF" stroke-width="1.5"/>
-                                <circle cx="19" cy="12" r="2.5" stroke="#3ABDFF" stroke-width="1.5"/>
-                                <path d="M7.5 12h9" stroke="#3ABDFF" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 2"/>
-                                <path d="M5 6V4M5 20v-2M19 6V4M19 20v-2" stroke="#3ABDFF" stroke-width="1.5" stroke-linecap="round"/>
+                                <circle cx="5" cy="12" r="2.5" stroke="var(--brand-blue)" stroke-width="1.5"/>
+                                <circle cx="19" cy="12" r="2.5" stroke="var(--brand-blue)" stroke-width="1.5"/>
+                                <path d="M7.5 12h9" stroke="var(--brand-blue)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 2"/>
+                                <path d="M5 6V4M5 20v-2M19 6V4M19 20v-2" stroke="var(--brand-blue)" stroke-width="1.5" stroke-linecap="round"/>
                             </svg>
                         </div>
                         <span class="project-status">Live</span>
@@ -206,9 +207,9 @@
                     <div class="project-card-top">
                         <div class="project-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="8" r="3.5" stroke="#00E5FF" stroke-width="1.5"/>
-                                <path d="M5 20c0-3.5 3-5.5 7-5.5s7 2 7 5.5" stroke="#00E5FF" stroke-width="1.5" stroke-linecap="round"/>
-                                <path d="M17 3l1.5 1.5L17 6" stroke="#00E5FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="8" r="3.5" stroke="var(--brand-cyan)" stroke-width="1.5"/>
+                                <path d="M5 20c0-3.5 3-5.5 7-5.5s7 2 7 5.5" stroke="var(--brand-cyan)" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M17 3l1.5 1.5L17 6" stroke="var(--brand-cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
                         <span class="project-status project-status-dev">In progress</span>
@@ -367,7 +368,7 @@
     }
 
     ::selection {
-        background: rgba(168, 85, 247, 0.3);
+        background: var(--border-brand-violet);
         color: #fff;
     }
 
@@ -407,8 +408,8 @@
         width: 800px;
         height: 800px;
         background: radial-gradient(ellipse at center,
-                rgba(120, 63, 228, 0.15) 0%,
-                rgba(58, 189, 255, 0.08) 40%,
+                var(--glow-brand-purple) 0%,
+                var(--glow-brand-blue) 40%,
                 transparent 70%);
         pointer-events: none;
         z-index: 0;
@@ -471,17 +472,17 @@
     }
 
     .nav-cta {
-        background: rgba(168, 85, 247, 0.15);
-        border: 1px solid rgba(168, 85, 247, 0.3);
+        background: var(--surface-brand-violet);
+        border: 1px solid var(--border-brand-violet);
         padding: 0.5rem 1rem;
         border-radius: 8px;
-        color: #783FE4 !important;
+        color: var(--brand-purple) !important;
         transition: all 0.2s !important;
     }
 
     .nav-cta:hover {
-        background: rgba(168, 85, 247, 0.25) !important;
-        border-color: rgba(168, 85, 247, 0.5) !important;
+        background: var(--surface-brand-violet-hover) !important;
+        border-color: var(--border-brand-violet-strong) !important;
     }
 
     main {
@@ -504,13 +505,13 @@
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        background: rgba(168, 85, 247, 0.1);
-        border: 1px solid rgba(168, 85, 247, 0.2);
+        background: var(--surface-brand-violet-soft);
+        border: 1px solid var(--border-brand-violet-soft);
         padding: 0.4rem 0.9rem;
         border-radius: 100px;
         font-size: 0.8rem;
         font-weight: 500;
-        color: #783FE4;
+        color: var(--brand-purple);
         margin-bottom: 2rem;
         width: fit-content;
     }
@@ -519,7 +520,7 @@
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background: #783FE4;
+        background: var(--brand-purple);
         animation: pulse 2s ease-in-out infinite;
     }
 
@@ -539,7 +540,7 @@
     }
 
     .gradient-text {
-        background: linear-gradient(135deg, #783FE4 0%, #3ABDFF 50%, #00E5FF 100%);
+        background: var(--gradient-brand);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -574,14 +575,14 @@
     }
 
     .btn-primary {
-        background: linear-gradient(135deg, #783FE4, #3ABDFF);
+        background: var(--gradient-brand-short);
         color: #fff;
-        box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+        box-shadow: 0 0 30px var(--glow-brand-violet);
     }
 
     .btn-primary:hover {
         transform: translateY(-2px);
-        box-shadow: 0 0 40px rgba(168, 85, 247, 0.5);
+        box-shadow: 0 0 40px var(--border-brand-violet-strong);
     }
 
     .btn-ghost {
@@ -659,7 +660,7 @@
     }
 
     .marquee-track .sep {
-        color: rgba(168, 85, 247, 0.4);
+        color: var(--text-brand-violet-muted);
         font-size: 0.5rem;
     }
 
@@ -681,7 +682,7 @@
         font-family: 'Michroma', sans-serif;
         text-transform: uppercase;
         letter-spacing: 0.15em;
-        color: #783FE4;
+        color: var(--brand-purple);
         margin-bottom: 1rem;
     }
 
@@ -716,7 +717,7 @@
     }
 
     .project-card {
-        background: rgba(255,255,255,0.03);
+        background: var(--surface-card);
         border: 1px solid rgba(255,255,255,0.08);
         border-radius: 16px;
         padding: 1.75rem;
@@ -729,14 +730,14 @@
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(135deg, rgba(168,85,247,0.05) 0%, transparent 60%);
+        background: linear-gradient(135deg, var(--surface-brand-violet-subtle) 0%, transparent 60%);
         opacity: 0;
         transition: opacity 0.3s;
         pointer-events: none;
     }
 
     .project-card:hover {
-        border-color: rgba(168,85,247,0.3);
+        border-color: var(--border-brand-violet);
         transform: translateY(-4px);
         box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     }
@@ -821,7 +822,7 @@
         display: inline-flex;
         align-items: center;
         gap: 0.4rem;
-        color: #783FE4;
+        color: var(--brand-purple);
         text-decoration: none;
         font-size: 0.85rem;
         font-weight: 500;
@@ -847,7 +848,7 @@
     }
 
     .dogfood-item {
-        background: rgba(255,255,255,0.03);
+        background: var(--surface-card);
         border: 1px solid rgba(255,255,255,0.08);
         border-radius: 16px;
         padding: 1.75rem;
@@ -855,7 +856,7 @@
     }
 
     .dogfood-item:hover {
-        border-color: rgba(168,85,247,0.3);
+        border-color: var(--border-brand-violet);
         transform: translateY(-4px);
     }
 
@@ -864,7 +865,7 @@
         font-family: 'Michroma', sans-serif;
         font-size: 0.8rem;
         font-weight: 700;
-        color: #783FE4;
+        color: var(--brand-purple);
         margin-bottom: 1rem;
     }
 
@@ -919,7 +920,7 @@
     .value-num {
         font-size: 0.7rem;
         font-weight: 700;
-        color: #783FE4;
+        color: var(--brand-purple);
         font-variant-numeric: tabular-nums;
         width: 1.5rem;
     }
@@ -952,8 +953,8 @@
     .vision-card-2 {
         top: 80px;
         right: 0;
-        background: linear-gradient(135deg, rgba(168,85,247,0.1), rgba(99,102,241,0.05));
-        border-color: rgba(168,85,247,0.2);
+        background: linear-gradient(135deg, var(--surface-brand-violet-soft), var(--surface-brand-indigo-subtle));
+        border-color: var(--border-brand-violet-soft);
     }
 
     .vision-card-inner {
@@ -967,7 +968,7 @@
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.12em;
-        color: #783FE4;
+        color: var(--brand-purple);
     }
 
     .vision-text {
@@ -1020,8 +1021,8 @@
     }
 
     .contact-email:hover {
-        background: rgba(168,85,247,0.1);
-        border-color: rgba(168,85,247,0.3);
+        background: var(--surface-brand-violet-soft);
+        border-color: var(--border-brand-violet);
         transform: translateY(-2px);
         box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
