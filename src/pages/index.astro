@@ -1,4 +1,5 @@
 ---
+import SectionHeader from '../components/SectionHeader.astro';
 import '../styles/global.css';
 ---
 <!DOCTYPE html>
@@ -143,11 +144,11 @@ import '../styles/global.css';
 
         <!-- Projects -->
         <section class="projects" id="projects">
-            <div class="section-header">
-                <span class="section-tag">Portfolio</span>
-                <h2 class="section-title">Our Projects</h2>
-                <p class="section-desc">AI-native products built with market focus and technical excellence.</p>
-            </div>
+            <SectionHeader
+                tag="Portfolio"
+                title="Our Projects"
+                desc="AI-native products built with market focus and technical excellence."
+            />
             <div class="projects-grid">
                 <article class="project-card">
                     <div class="project-card-top">
@@ -233,11 +234,11 @@ import '../styles/global.css';
 
         <!-- Valkiria runs on Valkiria -->
         <section class="dogfood" id="how-we-work">
-            <div class="section-header">
-                <span class="section-tag">Proof</span>
-                <h2 class="section-title">Valkiria runs on Valkiria.</h2>
-                <p class="section-desc">We don't just build the AI-native company stack — we run on it. From day one, our own company operates as a human + AI team, using the very products we ship.</p>
-            </div>
+            <SectionHeader
+                tag="Proof"
+                title="Valkiria runs on Valkiria."
+                desc="We don't just build the AI-native company stack — we run on it. From day one, our own company operates as a human + AI team, using the very products we ship."
+            />
             <div class="dogfood-grid">
                 <div class="dogfood-item">
                     <span class="dogfood-num">01</span>
@@ -670,39 +671,6 @@ import '../styles/global.css';
     }
 
     /* Sections */
-    .section-header {
-        text-align: center;
-        margin-bottom: 4rem;
-    }
-
-    .section-tag {
-        display: inline-block;
-        font-size: 0.75rem;
-        font-weight: 600;
-        font-family: 'Michroma', sans-serif;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: var(--brand-purple);
-        margin-bottom: 1rem;
-    }
-
-    .section-title {
-        font-size: clamp(2rem, 4vw, 3rem);
-        font-weight: 800;
-        font-family: 'Michroma', sans-serif;
-        color: #fff;
-        letter-spacing: -0.02em;
-        line-height: 1.15;
-        margin-bottom: 1rem;
-    }
-
-    .section-desc {
-        color: rgba(255,255,255,0.45);
-        font-size: 1.05rem;
-        max-width: 50ch;
-        margin: 0 auto;
-    }
-
     /* Projects */
     .projects {
         padding: 7rem 2rem;

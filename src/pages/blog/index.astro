@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 import { getCollection } from 'astro:content';
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
@@ -8,11 +9,12 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
 <BaseLayout title="Blog" description="Thoughts on AI agents, agentic companies, and building the future of work. From the Valkiria Lab team.">
   <section class="blog-index">
     <div class="blog-index-inner">
-      <div class="section-header">
-        <span class="section-tag">Blog</span>
-        <h1 class="section-title">Thoughts on the<br><span class="gradient-text">agentic future</span>.</h1>
-        <p class="section-desc">Building in public. Sharing what we learn about AI agents, agentic companies, and the future of work.</p>
-      </div>
+      <SectionHeader
+        tag="Blog"
+        title={'Thoughts on the<br><span class="gradient-text">agentic future</span>.'}
+        desc="Building in public. Sharing what we learn about AI agents, agentic companies, and the future of work."
+        level={1}
+      />
 
       <div class="posts-grid">
         {sortedPosts.map((post) => {
@@ -59,46 +61,6 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
 
   .blog-index-inner {
     max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: 4rem;
-  }
-
-  .section-tag {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    font-family: 'Michroma', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--brand-purple);
-    margin-bottom: 1rem;
-  }
-
-  .section-title {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
-    font-family: 'Michroma', sans-serif;
-    color: #fff;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
-    margin-bottom: 1rem;
-  }
-
-  .gradient-text {
-    background: var(--gradient-brand);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .section-desc {
-    color: rgba(255,255,255,0.45);
-    font-size: 1.05rem;
-    max-width: 50ch;
     margin: 0 auto;
   }
 
