@@ -12,10 +12,10 @@ Built with: humanos y agentes trabajando juntos
 /* SECRET MESSAGE — by Alberto, Chief Fun Officer */
 mi perro come patatas fritas
 
-         __
-    (___(). ;
-    /,    /`
-    \\\"--\\\
-      _   _
-     (_)_(_)   yum!
-   ~ patatas ~
+      __
+ (___()'`;    woof!
+ /,    /`
+ \\"--\\
+
+   | | | |
+  (_______)   ~ patatas fritas ~
