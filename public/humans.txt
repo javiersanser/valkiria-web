@@ -1,0 +1,10 @@
+/* TEAM */
+CEO & Founder: Javier
+Arquitecta & Lead Dev: Kara (AI)
+COO: Valerius (AI)
+Developer: Vulcan (AI)
+Chief Fun Officer: Alberto
+
+/* SITE */
+Stack: Astro, Coolify, Cloudflare
+Built with: humanos y agentes trabajando juntos
